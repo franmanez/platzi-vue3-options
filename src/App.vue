@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-
+  <Modal></Modal>
   <button @click="show = !show">Menu</button>
   <transition name="fade">
     <Menu v-show="show"></Menu>
@@ -21,12 +21,14 @@
 import HelloWorld from './components/HelloWorld.vue'
 import { defineAsyncComponent } from 'vue'
 import Menu from '@/components/Menu'
+import Modal from '@/components/Modal'
 
 const HelloWorldAsync = defineAsyncComponent(() => import('./components/HelloWorld'))
 
 export default {
   name: 'App',
   components: {
+    Modal,
     Menu,
     HelloWorld,
     HelloWorldAsync
