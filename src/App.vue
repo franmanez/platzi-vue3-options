@@ -1,4 +1,6 @@
 <template>
+  <p>{{ text }}</p>
+  <p>{{ algo }}</p>
   <img alt="Vue logo" src="./assets/logo.png">
   <Modal></Modal>
   <button @click="show = !show">Menu</button>
@@ -21,10 +23,13 @@ import { defineAsyncComponent } from 'vue'
 import Menu from '@/components/Menu'
 import Modal from '@/components/Modal'
 
+import base from '@/mixins/base'
+
 const HelloWorldAsync = defineAsyncComponent(() => import('./components/HelloWorld'))
 
 export default {
   name: 'App',
+  mixins: [base],
   components: {
     Modal,
     Menu,
@@ -33,10 +38,21 @@ export default {
   },
   data () {
     return {
+      text: 'Hola Vue',
       show: false,
       componente: 'HelloWorld'
     }
+  },
+  beforeCreate () {
+    console.log('beforeCreate', this.$data, this.$el)
+  },
+  created () {
+    console.log('created', this.$data, this.$el)
+  },
+  mounted () {
+    console.log('mounted', this.$data, this.$el)
   }
+
 }
 </script>
 
