@@ -6,13 +6,11 @@
     <Menu v-show="show"></Menu>
   </transition>
   <hr>
-  <h1>COMPONENTES NORMAL</h1>
   <HelloWorld msg="Componente Normal"/>
 
   <h1>COMPONENTES DINÁMICOS</h1>
   <component v-bind:is="componente"></component>
 
-  <h1>COMPONENTES ASÍNCRONOS</h1>
   <HelloWorldAsync msg="Componentes Dinámicos"/>
 
 </template>
