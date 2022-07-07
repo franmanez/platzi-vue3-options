@@ -1,16 +1,27 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
+  <h1>COMPONENTES NORMAL</h1>
+  <HelloWorld msg="Componente Normal"/>
+
+  <h1>COMPONENTES DINÁMICOS</h1>
   <component v-bind:is="componente"></component>
+
+  <h1>COMPONENTES ASÍNCRONOS</h1>
+  <HelloWorldAsync msg="Componentes Dinámicos"/>
+
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import { defineAsyncComponent } from 'vue'
+
+const HelloWorldAsync = defineAsyncComponent(() => import('./components/HelloWorld'))
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    HelloWorldAsync
   },
   data () {
     return {
